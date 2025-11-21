@@ -4,6 +4,7 @@ const playBtn = document.getElementById('playBtn');
 
 // Frases en español (puedes editarlas). Añadí más frases y emojis.
 const phrases = [
+    'Lee cada una, porque en todas está un pedacito de lo mucho que te amo DIANA . 💌❤️',
 	'Eres mi lugar favorito en este mundo. 🌙',
 	'Cuando sonríes, el tiempo se detiene sólo para nosotros. 😊💕',
 	'Cada día a tu lado es un poema que no termina. ✨📜',
@@ -13,7 +14,14 @@ const phrases = [
 	'Tu risa es mi melodía favorita. 😂🎵',
 	'Contigo todo sabe a verano eterno. ☀️🌺',
 	'Si me pierdo, que sea entre tus brazos. 🤍🤗',
-	'Gracias por ser mi paz y mi locura. 🌸🔥'
+	'Gracias por ser mi paz y mi locura. 🌸🔥',
+    'Eres mi sol en los días nublados. ☁️☀️',
+    'Cada momento contigo es un tesoro que guardo en mi corazón. 💎❤️',   
+    'Tu abrazo es el lugar donde mi alma siempre descansa. 🤍🌙',
+    'Desde que llegaste, mi vida aprendió a brillar diferente. ✨💗',
+    'Tu amor es el milagro que nunca supe que necesitaba. 🌹✨',
+    'A tu lado entendí que la felicidad también tiene tu nombre. 💞🌟'
+    
 ];
 let phraseIndex = 0;
 

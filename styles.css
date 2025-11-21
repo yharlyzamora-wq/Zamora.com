@@ -111,6 +111,158 @@ h1{font-family:Playfair Display,serif;font-size:2rem;margin:6px 0;color:var(--ac
 /* subtle parallax for main decorative elements */
 .flowers, .big-anim, .phrase{transition:transform 200ms ease-out}
 
+
+/* Start overlay (autoplay fallback) */
+.start-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6));z-index:80;pointer-events:auto}
+.start-overlay[aria-hidden="true"]{display:none}
+.start-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);text-align:center;color:#ffeef6}
+.start-card p{margin:0 0 10px}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#111;padding:10px 14px;border-radius:10px;border:none}
+
+/* Lumens: glowing lights that pulse and float */
+.lumens{position:fixed;inset:0;pointer-events:none;z-index:40;mix-blend-mode:screen}
+.lumen{position:absolute;width:28px;height:28px;border-radius:50%;transform:translate(-50%,-50%) scale(1);filter:blur(18px);opacity:0.9;will-change:transform,opacity,filter}
+.lumen::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#fff 0%, rgba(255,255,255,0.16) 30%, transparent 70%);mix-blend-mode:screen}
+.lumen.small{width:12px;height:12px;filter:blur(10px);opacity:0.7}
+.lumen.med{width:20px;height:20px;filter:blur(14px)}
+.lumen.big{width:44px;height:44px;filter:blur(22px);opacity:0.95}
+
+/* glow on big heart */
+.big-heart{transition:filter .18s ease, transform .18s ease}
+.heart-glow{filter:drop-shadow(0 0 18px rgba(255,111,163,0.14)) drop-shadow(0 0 32px rgba(167,139,215,0.08));}
+
+/* subtle parallax for main decorative elements */
+.flowers, .big-anim, .phrase{transition:transform 200ms ease-out}
+
+
+/* Start overlay (autoplay fallback) */
+.start-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6));z-index:80;pointer-events:auto}
+.start-overlay[aria-hidden="true"]{display:none}
+.start-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);text-align:center;color:#ffeef6}
+.start-card p{margin:0 0 10px}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#111;padding:10px 14px;border-radius:10px;border:none}
+
+/* responsive */
+@media (max-width:640px){
+  h1{font-size:1.4rem}
+  .big-anim{width:140px;height:140px}
+  .big-heart{width:92px;height:92px}
+  .flowers{opacity:.9}
+}
+
+:root{
+  --bg-1:#05060a;
+  --bg-2:#211225;
+  --accent:#ff6fa3;
+  --accent-2:#ff8fb3;
+  --muted:#cdb6c6;
+  --glass: rgba(255,255,255,0.03);
+  --lumen-color-1: #ffd3e6;
+  --lumen-color-2: #ff9ac1;
+  --lumen-color-3: #a78bd7;
+  --lumen-color-4: #7be4d6;
+  --lumen-color-5: #fff08a;
+  --lumen-intensity: 0.8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Montserrat,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--muted);-webkit-font-smoothing:antialiased}
+.scene{min-height:100vh;position:relative;overflow:hidden}
+.container{max-width:920px;margin:0 auto;padding:28px 18px}
+.top{text-align:center}
+h1{font-family:Playfair Display,serif;font-size:2rem;margin:6px 0;color:var(--accent-2)}
+.subtitle{margin:0 0 14px;color:#b99fb3}
+.controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.file-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#111;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600}
+.file-btn input{display:none}
+.control{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+.center{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:24px}
+.big-anim{width:180px;height:180px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
+.big-heart{width:120px;height:120px;fill:transparent;stroke:var(--accent);stroke-width:1.5;filter:drop-shadow(0 6px 18px rgba(255,111,163,0.12));animation:beat 2s infinite}
+@keyframes beat{0%{transform:scale(.96);opacity:.9}50%{transform:scale(1.06);opacity:1}100%{transform:scale(.96);opacity:.9}}
+
+.phrases{width:100%;max-width:720px;text-align:center}
+.phrase{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);font-size:1.05rem;color:#ffeef6;min-height:56px;display:flex;align-items:center;justify-content:center;transition:transform .28s,opacity .28s;position:relative;overflow:visible}
+.phrase.show{animation:fadeInUp .45s both}
+
+/* Animated colorful text */
+.phrase .text-gradient{font-weight:700;background:linear-gradient(90deg,#ff6fa3,#ffd3e6,#a78bd7,#7be4d6);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:300% 100%;animation:gradientShift 4s linear infinite}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Burst particles when new phrase appears */
+.burst-piece{position:absolute;width:10px;height:10px;border-radius:50%;opacity:0;pointer-events:none}
+.burst{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.burst-piece.animate{animation:burstAnim 700ms forwards}
+@keyframes burstAnim{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.6)}}
+
+/* Subtle floating motion for phrase container */
+.phrase.float{animation:floatPhrase 6s ease-in-out infinite}
+@keyframes floatPhrase{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+/* Hearts particle layer */
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:50}
+.heart-particle{position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(1);pointer-events:none;font-size:18px;will-change:transform,opacity}
+.heart-particle.small{font-size:14px}
+.heart-particle.med{font-size:20px}
+.heart-particle.large{font-size:32px}
+.heart-particle.animate{animation:heartFloat 1400ms cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes heartFloat{
+  0%{opacity:1;transform:translate(-50%,-50%) translateY(0) scale(0.9) rotate(0deg)}
+  40%{opacity:1;transform:translate(-50%,-50%) translateY(-34px) scale(1.05) rotate(-8deg)}
+  100%{opacity:0;transform:translate(-50%,-50%) translateY(-120px) scale(1.1) rotate(12deg)}
+}
+
+/* Heart burst (multiple hearts) */
+.heart-burst-piece{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);will-change:transform,opacity}
+.heart-burst-piece svg{width:18px;height:18px;display:block}
+
+/* Effects toggle small style */
+.control.effects-off{opacity:0.6;filter:grayscale(.4)}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}
+.phrase-actions{margin-top:10px;display:flex;gap:8px;justify-content:center}
+.btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+.lyrics{margin-top:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);max-width:760px;margin-left:auto;margin-right:auto}
+.lyrics-header{display:flex;justify-content:space-between;align-items:center}
+.lyrics-content{margin-top:10px;color:#ffdff0;min-height:120px;white-space:pre-wrap;outline:none}
+.small{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+/* Flowers */
+.flowers{position:fixed;inset:0;pointer-events:none;opacity:.95}
+.flower{position:absolute;width:120px;height:120px;background-image:radial-gradient(circle at 30% 30%, #ffd3e6, #ffb7da 40%, #ff8fb3 70%);border-radius:50%;filter:blur(.6px);mix-blend-mode:screen;opacity:.95}
+.f1{left:-10%;top:10%;transform:scale(.8);animation:float1 18s linear infinite}
+.f2{right:-8%;top:22%;transform:scale(.7);animation:float2 20s linear infinite}
+.f3{left:2%;bottom:-12%;transform:scale(.9);animation:float3 22s linear infinite}
+.f4{right:12%;bottom:6%;transform:scale(.6);animation:float1 24s linear infinite}
+.f5{left:50%;top:-8%;transform:translateX(-50%) scale(.75);animation:float2 26s linear infinite}
+@keyframes float1{0%{transform:translateY(0) scale(.8)}50%{transform:translateY(-40px) scale(.82)}100%{transform:translateY(0) scale(.8)}}
+@keyframes float2{0%{transform:translateY(0) scale(.7)}50%{transform:translateY(-60px) scale(.74)}100%{transform:translateY(0) scale(.7)}}
+@keyframes float3{0%{transform:translateY(0) scale(.9)}50%{transform:translateY(-80px) scale(.92)}100%{transform:translateY(0) scale(.9)}}
+
+/* responsive */
+@media (max-width:640px){
+  h1{font-size:1.4rem}
+  .big-anim{width:140px;height:140px}
+  .big-heart{width:92px;height:92px}
+  .flowers{opacity:.9}
+}
+
+/* Lumens: glowing lights that pulse and float */
+.lumens{position:fixed;inset:0;pointer-events:none;z-index:40;mix-blend-mode:screen}
+.lumen{position:absolute;width:28px;height:28px;border-radius:50%;transform:translate(-50%,-50%) scale(1);filter:blur(18px);opacity:0.9;will-change:transform,opacity,filter}
+.lumen::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,#fff 0%, rgba(255,255,255,0.16) 30%, transparent 70%);mix-blend-mode:screen}
+.lumen.small{width:12px;height:12px;filter:blur(10px);opacity:0.7}
+.lumen.med{width:20px;height:20px;filter:blur(14px)}
+.lumen.big{width:44px;height:44px;filter:blur(22px);opacity:0.95}
+
+/* glow on big heart */
+.big-heart{transition:filter .18s ease, transform .18s ease}
+.heart-glow{filter:drop-shadow(0 0 18px rgba(255,111,163,0.14)) drop-shadow(0 0 32px rgba(167,139,215,0.08));}
+
+/* subtle parallax for main decorative elements */
+.flowers, .big-anim, .phrase{transition:transform 200ms ease-out}
+
 /* Sweep light band */
 .sweep{position:fixed;top:-20%;left:0;width:240px;height:140%;background:linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.06), rgba(255,255,255,0.0));transform:translateX(0);opacity:0;pointer-events:none;z-index:60;filter:blur(20px);transition:transform 0.9s ease-out, opacity 0.5s}
 
