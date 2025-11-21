@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Para ti — Un rincón romántico</title>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body class="dark">
+		<div class="scene">
+			<div class="flowers" aria-hidden="true">
+				<span class="flower f1"></span>
+				<span class="flower f2"></span>
+				<span class="flower f3"></span>
+				<span class="flower f4"></span>
+				<span class="flower f5"></span>
+			</div>
+
+			<!-- Capa de corazones (partículas) -->
+			<div id="hearts" class="hearts" aria-hidden="true"></div>
+
+			<!-- Capa de luces luminosas reactivas -->
+			<div id="lumens" class="lumens" aria-hidden="true"></div>
+
+			<main class="container">
+				<header class="top">
+					<h1>Para ti, mi niña</h1>
+					<p class="subtitle">Palabras y música para decir lo que mi corazón siente.</p>
+					<div class="controls">
+						<button id="playBtn" class="control">▶︎ Reproducir</button>
+					</div>
+				</header>
+
+				<section class="center">
+					<div class="big-anim" aria-hidden="true">
+						<svg class="big-heart" viewBox="0 0 32 29.6"><path d="M23.6 0c-2.9 0-5.4 1.6-6.6 4-1.2-2.4-3.7-4-6.6-4C4.9 0 0 4.9 0 10.8 0 18.3 10.2 23.7 16 29.6c5.8-5.9 16-11.3 16-18.8C32 4.9 27.1 0 23.6 0z"/></svg>
+					</div>
+
+					<div class="phrases">
+						<div id="phraseBox" class="phrase">Pulsa "Siguiente frase" para verla aquí...</div>
+						<div class="phrase-actions">
+							<button id="nextPhrase" class="btn">Siguiente frase</button>
+							<button id="randomPhrase" class="btn">Aleatoria</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- Sección de letra eliminada a petición del usuario. -->
+
+			</main>
+
+			<audio id="audio" preload="none"></audio>
+
+			<div id="startOverlay" class="start-overlay" aria-hidden="true">
+				<div class="start-card">
+					<p>Pulsa para activar la música</p>
+					<button id="startBtn" class="btn primary">Click mi AMOR</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
+
